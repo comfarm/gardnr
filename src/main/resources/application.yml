@@ -1,0 +1,36 @@
+server:
+  port: 8091
+  contextPath: /user
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/comfarm?characterEncoding=utf8
+    username: root
+    password: 1234
+  cloud:
+    config:
+      discovery:
+        enabled: true
+flyway:
+  baseline-on-migrate: true
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
+
+hibernate:
+  hbm2ddl:
+    auto: create
+
+
+logging:
+  level:
+    com:
+      netflix:
+        eureka: OFF
+        discovery: OFF
+    springfox.documentation.swagger2: DEBUG
+    org.springframework.data: DEBUG
+  file: logs/farm.log
