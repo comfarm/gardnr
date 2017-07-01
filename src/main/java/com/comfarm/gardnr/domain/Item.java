@@ -32,4 +32,9 @@ public class Item extends BaseDomain{
     @Setter
     private ItemCategory itemCategory;
 
+    @Getter
+    @Setter
+    private String image;
+
+
 }

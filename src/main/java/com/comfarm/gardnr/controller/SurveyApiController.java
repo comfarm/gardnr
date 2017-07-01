@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +25,9 @@ public class SurveyApiController implements SurveyApi {
     @Autowired
     private ItemService itemService;
 
+    @ResponseBody
     @Override
-    public ResponseEntity<ItemListDto> startPlanting(@ApiParam(value = "PlantLocation[backyard,balcony,rooftop,indoors] PlantType[fruits,herbs,house,succulent,vegetable]", required = true) @RequestBody NewSurveyDto request, BindingResult bindingResult) {
+    public List<ItemDto> survey(@ApiParam(value = "PlantLocation[backyard,balcony,rooftop,indoors] PlantType[fruits,herbs,house,succulent,vegetable]", required = true) @RequestBody NewSurveyDto request) {
         ItemListDto dto=new ItemListDto();
         ModelMapper mapper=new ModelMapper();
         mapper.addConverter(new ItemConverter());
@@ -35,7 +37,8 @@ public class SurveyApiController implements SurveyApi {
             itemDtoList.add(mapper.map(item,ItemDto.class));
         });
         dto.setItems(itemDtoList);
-        return new ResponseEntity<>(dto, HttpStatus.CREATED);
+//        return new ResponseEntity<>(dto, HttpStatus.CREATED);
+        return itemDtoList;
     }
 
 }

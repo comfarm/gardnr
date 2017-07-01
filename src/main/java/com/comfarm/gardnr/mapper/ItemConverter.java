@@ -13,6 +13,7 @@ public class ItemConverter extends AbstractConverter<Item, ItemDto> {
         dto.setDescription(item.getDescription());
         dto.setName(item.getName());
         dto.setId(item.getId());
+        dto.setIcon(item.getImage());
         return dto;
     }
 }
