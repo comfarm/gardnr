@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="item")
 public class Item extends BaseDomain{
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
@@ -19,6 +20,8 @@ public class Item extends BaseDomain{
     @Getter
     @Setter
     private String name;
+
+    @Column(name="description", columnDefinition="TEXT")
     @Getter
     @Setter
     private String description;

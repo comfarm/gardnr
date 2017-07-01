@@ -1,6 +1,6 @@
 server:
   port: 8091
-  contextPath: /user
+  contextPath: /api
 
 spring:
   datasource:
@@ -33,5 +33,5 @@ logging:
         discovery: OFF
     springfox.documentation.swagger2: DEBUG
     org.springframework.data: DEBUG
-  file: logs/farm.log
+  file: logs/app.log
 
