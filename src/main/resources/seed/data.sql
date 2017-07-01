@@ -45,3 +45,13 @@ INSERT INTO `item`(`id`,`item_category_id`,`name`,`description`) VALUES
 (23,5,"Mango","Mangoes are a tropical tree that only grow in areas that are frost-free all year. These trees can get quite large, up to 100 feet tall, but are very tough plants that produce fruit from even young trees."),
 (24,5,"Pear","One of the best-known pear varieties is the Bartlett pear, which is often seen on the grocery store shelves. When planting pear trees, be sure to research the variety first. Not all pear trees will be able to cross-pollinate each other. This varies depending on the specific variety."),
 (25,5,"Peach","Peaches are another longtime favorite because of their sweet, juicy flesh. The trees need a winter chill to set fruit and properly grow new leaves and branches. This varies depending on the variety of peach being grown.");
+
+
+
+SET FOREIGN_KEY_CHECKS=0;
+truncate table wiki;
+SET FOREIGN_KEY_CHECKS=1;
+
+INSERT INTO `wiki`(`id`,`item_id`,`title`) VALUES
+(1,1,"How to plant a tomato");
+
