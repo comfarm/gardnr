@@ -12,7 +12,7 @@ import javax.websocket.server.PathParam;
 @Api(value = "/", description = "the user API")
 public interface UserApi {
 
-    @ApiOperation(value = "", notes = "Save User", response = UserDto.class)
+    @ApiOperation(value = "", notes = "Save User", response = UserDto.class, tags = {"User", "Public"})
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "sucessfully saved", response = ObjectError.class),
             @ApiResponse(code = 400, message = "Theres an error on your request.", response = ObjectError.class),
@@ -23,7 +23,7 @@ public interface UserApi {
             method = RequestMethod.POST)
     ResponseEntity<UserDto> saveUser(@RequestBody UserDto request, BindingResult bindingResult);
 
-    @ApiOperation(value = "", notes = "Get User", response = UserDto.class)
+    @ApiOperation(value = "", notes = "Get User", response = UserDto.class, tags = {"User", "Public"})
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "sucessfully saved", response = ObjectError.class),
             @ApiResponse(code = 400, message = "Theres an error on your request.", response = ObjectError.class),
