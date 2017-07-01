@@ -12,6 +12,8 @@ public class ProgressDomainToDto extends AbstractConverter<Progress,ProgressDto>
         dto.setContent(domain.getContent());
         dto.setImage(domain.getImage());
         dto.setTanimId(domain.getTanim().getId());
+        dto.setTitle(domain.getTitle());
+        dto.setProgressDate(domain.getProgressDate());
         return dto;
     }
 }

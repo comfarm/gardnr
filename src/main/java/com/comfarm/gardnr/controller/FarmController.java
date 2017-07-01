@@ -21,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+import java.util.Set;
+
 @Controller
 public class FarmController implements FarmApi {
     @Autowired
@@ -44,6 +47,12 @@ public class FarmController implements FarmApi {
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
 
+    @Override
+    public ResponseEntity<Set<ProgressDto>> getAllProgress(long tanimId) {
+        Set<ProgressDto> progressSet = farmService.getTanimProgress(tanimId);
+        return new ResponseEntity<>(progressSet, HttpStatus.CREATED);
+    }
+
 //    @Override
 //    public ResponseEntity<ProgressDto> saveProgress(@RequestBody SaveProgressDto request, BindingResult bindingResult) {
 //        ModelMapper mapper=new ModelMapper();
@@ -62,7 +71,7 @@ public class FarmController implements FarmApi {
         mapper.addConverter(new ProgressDomainToDto());
         Progress newProgress = mapper.map(request, Progress.class);
 //        storageService.store(file);
-        Progress savedProgress = farmService.saveProgress(request.getTanimId(), newProgress);
+        Progress savedProgress = farmService.saveProgress(newProgress);
         ProgressDto dto = mapper.map(savedProgress, ProgressDto.class);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }

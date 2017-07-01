@@ -13,6 +13,10 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.websocket.server.PathParam;
+import java.util.List;
+import java.util.Set;
+
 @Api(value = "/", description = "the farm API")
 public interface FarmApi {
 
@@ -47,10 +51,20 @@ public interface FarmApi {
             @ApiResponse(code = 400, message = "Theres an error on your request.", response = ObjectError.class),
             @ApiResponse(code = 500, message = "The server encountered an unexpected condition which prevented it from fulfilling the request.",
                     response = ObjectError.class)})
+    @RequestMapping(value = "/getAllProgress/{tanimId}",
+            produces = {"application/json"},
+            method = RequestMethod.GET)
+    ResponseEntity<Set<ProgressDto>> getAllProgress(@ApiParam(value = "Get all progress", required = true) @PathParam("tanimId") long tanimId);
+
+    @ApiOperation(value = "", notes = "Save progress with image", response = SaveProgressDto.class, tags = {"Public"})
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "sucessfully saved", response = ObjectError.class),
+            @ApiResponse(code = 400, message = "Theres an error on your request.", response = ObjectError.class),
+            @ApiResponse(code = 500, message = "The server encountered an unexpected condition which prevented it from fulfilling the request.",
+                    response = ObjectError.class)})
     @RequestMapping(value = "/progress",
             produces = {"application/json"},
             consumes = {MediaType.MULTIPART_FORM_DATA_VALUE },
             method = RequestMethod.POST)
     ResponseEntity<ProgressDto> saveProgressWithImage(@ApiParam(value = "Save progress", required = true) @ModelAttribute SaveProgressDto request, @RequestPart(value = "file", required = false) MultipartFile file, BindingResult bindingResult);
-
 }
