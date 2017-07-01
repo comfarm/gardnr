@@ -8,6 +8,11 @@ spring:
     url: jdbc:mysql://localhost:3306/comfarm?characterEncoding=utf8
     username: root
     password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
   cloud:
     config:
       discovery:
@@ -19,11 +24,6 @@ springfox:
     swagger:
       v2:
         path: /api-docs
-
-hibernate:
-  hbm2ddl:
-    auto: create
-
 
 logging:
   level:
