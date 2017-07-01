@@ -4,7 +4,7 @@ package com.comfarm.gardnr.controller;
 import com.comfarm.gardnr.dto.PlantDto;
 import com.comfarm.gardnr.dto.ProgressDto;
 import com.comfarm.gardnr.dto.SaveProgressDto;
-import com.comfarm.gardnr.dto.StartPlant;
+import com.comfarm.gardnr.dto.StartPlantDto;
 import io.swagger.annotations.*;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +25,7 @@ public interface FarmApi {
             produces = {"application/json"},
             consumes = {"application/json"},
             method = RequestMethod.POST)
-    ResponseEntity<PlantDto> startPlanting(@ApiParam(value = "Start PlantDto", required = true) @RequestBody StartPlant request, BindingResult bindingResult);
+    ResponseEntity<PlantDto> startPlanting(@ApiParam(value = "Start PlantDto", required = true) @RequestBody StartPlantDto request, BindingResult bindingResult);
 
 //
 //    @ApiOperation(value = "", notes = "Save progress", response = SaveProgressDto.class, tags = {"Public"})

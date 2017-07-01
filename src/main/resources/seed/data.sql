@@ -30,7 +30,7 @@ INSERT INTO `item`(`id`,`item_category_id`,`name`,`description`) VALUES
 (12,3,"Barberton Daisy","A flowering pot plant displaying striking flowers."),
 (13,3,"Belladonna Lily","Also known as the naked lady because of the bare flower stalks that appear without leaves. "),
 (14,3,"Blushing Bromeliad","An interesting species from the bromeliad family which produces a red center within the rosette of leaves. "),
-(15,3,"Beach Spider Lily","This amazing bulb based plant beach spider lily enjoys environments that are downright aquatic and easy to maintain. "),
+(15,3,"Beach Spider Lily","This amazing bulb based plant beach spider lily enjoys environments that are downright aquatic and easy to maintain. ");
 
 INSERT INTO `item`(`id`,`item_category_id`,`name`,`description`) VALUES
 (16,4,"Echeveria","The crown jewels of the rosette-forming succulents, easy-care Echeveria come in a rainbow of colors and can be easily found at nurseries. Some of our top picks include rose-colored ‘Afterglow’, frilly-edged ‘Blue Curls’, deep purple ‘Black Prince’, and pearly lavender ‘Perle von Nurnberg’. All Echeveria perform splendidly in containers and grow well in garden beds in mild-summer areas."),
