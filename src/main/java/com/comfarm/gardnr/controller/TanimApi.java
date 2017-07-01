@@ -7,6 +7,7 @@ import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,8 +24,7 @@ public interface TanimApi {
             @ApiResponse(code = 500, message = "The server encountered an unexpected condition which prevented it from fulfilling the request.", response = ObjectError.class)})
     @RequestMapping(value = "/plant/{tanimId}",
             produces = {"application/json"},
-            consumes = {"application/json"},
             method = RequestMethod.POST)
-    ResponseEntity<PlantProgressDto> plantProgresss(@ApiParam(value = "Get all progress", required = true) @PathParam("tanimId") long tanimId, BindingResult bindingResult);
+    ResponseEntity<PlantProgressDto> plantProgresss(@ApiParam(value = "Get all progress", required = true) @PathVariable("tanimId") long tanimId);
 
 }

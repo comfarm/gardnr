@@ -24,14 +24,18 @@ springfox:
     swagger:
       v2:
         path: /api-docs
-
+endpoints:
+  trace:
+    sensitive: false
 logging:
-  level:
-    com:
-      netflix:
-        eureka: OFF
-        discovery: OFF
-    springfox.documentation.swagger2: DEBUG
-    org.springframework.data: DEBUG
+  level: TRACE
+#    com:
+#      netflix:
+#        eureka: OFF
+#        discovery: OFF
+#    server.tomcat.accesslog.enabled: true
+#    server.tomcat.accessLogEnabled: true
+#    springfox.documentation.swagger2: DEBUG
+#    org.springframework.data: DEBUG
   file: logs/app.log
 

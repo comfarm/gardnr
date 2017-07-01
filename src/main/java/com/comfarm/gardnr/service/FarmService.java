@@ -91,4 +91,8 @@ public class FarmService {
         }
         return progressDtoSet;
     }
+
+    public Tanim getTanim(Long tanimId) {
+        return tanimRepository.getOne(tanimId);
+    }
 }

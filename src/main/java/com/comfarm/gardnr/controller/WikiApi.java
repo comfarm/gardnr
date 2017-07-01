@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import static org.springframework.http.MediaType.ALL_VALUE;
+
 @Api(value = "/", description = "the wiki API")
 public interface WikiApi {
 
@@ -23,6 +25,7 @@ public interface WikiApi {
             @ApiResponse(code = 500, message = "The server encountered an unexpected condition which prevented it from fulfilling the request.", response = ObjectError.class)})
     @RequestMapping(value = "/wiki/{wikiId}",
             produces = {"application/json"},
+            consumes = {ALL_VALUE},
             method = RequestMethod.GET)
     ResponseEntity<WikiDto> getWikiByIdUsingGET(@ApiParam(value = "wikiId", required = true) @PathVariable("wikiId") Long wikiId);
 
