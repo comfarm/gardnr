@@ -8,9 +8,7 @@ import com.comfarm.gardnr.dto.StepDto;
 import com.comfarm.gardnr.dto.WikiDto;
 import org.modelmapper.AbstractConverter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class WikiDomainToDTOConverter extends AbstractConverter<Wiki, WikiDto> {
 
@@ -35,6 +33,12 @@ public class WikiDomainToDTOConverter extends AbstractConverter<Wiki, WikiDto> {
             dto.setStepNum(step.getStepNum());
             dto.setTitle(step.getTitle());
             result.add(dto);
+        });
+        Collections.sort(result, new Comparator<StepDto>() {
+            @Override public int compare(StepDto p1, StepDto p2) {
+                return Math.toIntExact(p1.getStepNum() - p2.getStepNum());
+            }
+
         });
         return result;
     }
