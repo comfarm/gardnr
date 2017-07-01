@@ -23,6 +23,7 @@ public class Steps extends BaseDomain{
     @Setter
     private Wiki wiki;
 
+    @Column(name="content", columnDefinition="TEXT")
     @Getter
     @Setter
     private String content;
