@@ -1,4 +1,4 @@
-package com.comfarm.gardnr.service.files;
+package com.comfarm.gardnr.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -14,7 +14,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-@Service
 public class FileSystemStorageService implements StorageService {
 
     private final Path rootLocation;

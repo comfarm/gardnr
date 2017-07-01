@@ -1,4 +1,4 @@
-package com.comfarm.gardnr.service.files;
+package com.comfarm.gardnr.service;
 
 public class StorageException extends RuntimeException {
 

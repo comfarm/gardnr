@@ -8,7 +8,7 @@ import com.comfarm.gardnr.dto.SaveProgressDto;
 import com.comfarm.gardnr.dto.StartPlant;
 import com.comfarm.gardnr.mapper.ProgressDomainToDto;
 import com.comfarm.gardnr.service.FarmService;
-import com.comfarm.gardnr.service.files.StorageService;
+import com.comfarm.gardnr.service.StorageService;
 import io.swagger.annotations.ApiParam;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -27,12 +27,12 @@ public class FarmController implements FarmApi {
     @Autowired
     private FarmService farmService;
 
-    private final StorageService storageService;
+//    @Autowired
+//    private final StorageService storageService;
 
-    @Autowired
-    public FarmController(StorageService storageService) {
-        this.storageService = storageService;
-    }
+//    public FarmController(StorageService storageService) {
+//        this.storageService = storageService;
+//    }
 
 
     @Override
@@ -63,7 +63,7 @@ public class FarmController implements FarmApi {
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         mapper.addConverter(new ProgressDomainToDto());
         Progress newProgress = mapper.map(request, Progress.class);
-        storageService.store(file);
+//        storageService.store(file);
         Progress savedProgress = farmService.saveProgress(request.getTanimId(), newProgress);
         ProgressDto dto = mapper.map(savedProgress, ProgressDto.class);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
