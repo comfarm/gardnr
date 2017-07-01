@@ -7,7 +7,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -23,11 +23,11 @@ public class Tanim extends BaseDomain{
 
     @Getter
     @Setter
-    private Long userId;
+    private String userId;
 
     @Getter
     @Setter
-    private Long wikiId;
+    private Long itemId;
 
     @Getter
     @Setter

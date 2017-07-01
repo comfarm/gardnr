@@ -33,6 +33,10 @@ public class Steps extends BaseDomain{
 
     @Getter
     @Setter
+    private int countDays;
+
+    @Getter
+    @Setter
     private String title;
 
 }

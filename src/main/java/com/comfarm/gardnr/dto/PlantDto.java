@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class PlantDto extends StartPlant{
+public class PlantDto extends StartPlantDto {
 
     private long id;
     private Date createdAt;

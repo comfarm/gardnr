@@ -5,10 +5,9 @@ import com.comfarm.gardnr.domain.Tanim;
 import com.comfarm.gardnr.dto.PlantDto;
 import com.comfarm.gardnr.dto.ProgressDto;
 import com.comfarm.gardnr.dto.SaveProgressDto;
-import com.comfarm.gardnr.dto.StartPlant;
+import com.comfarm.gardnr.dto.StartPlantDto;
 import com.comfarm.gardnr.mapper.ProgressDomainToDto;
 import com.comfarm.gardnr.service.FarmService;
-import com.comfarm.gardnr.service.StorageService;
 import io.swagger.annotations.ApiParam;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -36,13 +35,12 @@ public class FarmController implements FarmApi {
 
 
     @Override
-    public ResponseEntity<PlantDto> startPlanting(@RequestBody StartPlant request, BindingResult bindingResult) {
+    public ResponseEntity<PlantDto> startPlanting(@RequestBody StartPlantDto request, BindingResult bindingResult) {
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        PlantDto dto;
-        Tanim tanim = mapper.map(request, Tanim.class);
-        Tanim saved = farmService.start(tanim);
-        dto = mapper.map(saved, PlantDto.class);
+//        Tanim tanim = mapper.map(request, Tanim.class);
+        Tanim saved = farmService.start(request);
+        PlantDto dto = mapper.map(saved, PlantDto.class);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
 

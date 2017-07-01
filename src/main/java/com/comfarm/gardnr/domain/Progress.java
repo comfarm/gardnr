@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "progress")
@@ -28,5 +29,13 @@ public class Progress extends BaseDomain{
 
     @Getter
     @Setter
+    private String title;
+
+    @Getter
+    @Setter
     private String content;
+
+    @Getter
+    @Setter
+    private Date progressDate;
 }
