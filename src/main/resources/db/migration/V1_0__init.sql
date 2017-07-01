@@ -49,6 +49,19 @@ CREATE TABLE `progress` (
   CONSTRAINT `FKgneiewrx04ip5gals5awhxy2k` FOREIGN KEY (`tanim_id`) REFERENCES `tanim` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE `milestone` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `content` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `dayNum` smallint(5) DEFAULT NULL,
+  `wiki_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKgneiewrx04ip5gals5awhxy2kd` (`wiki_id`),
+  CONSTRAINT `FKgneiewrx04ip5gals5awhxy2kd` FOREIGN KEY (`wiki_id`) REFERENCES `wiki` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 CREATE TABLE `steps` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `content` text,

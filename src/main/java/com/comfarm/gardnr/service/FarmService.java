@@ -37,23 +37,22 @@ public class FarmService {
 //        get itemid from wikiId
         Wiki wiki = wikiRepository.findById(start.getWikiId());
         Item item = itemRepository.findById(wiki.getItemId());
-
         Tanim tanim = new Tanim();
-//        tanim.setId(0L);
         tanim.setUserId(start.getUsername());
         tanim.setItemId(item.getId());
         tanim.setStartDate(new Date());
         tanim = tanimRepository.save(tanim);
 
-        Set<Progress> progressLst = new HashSet<>();
-        Set<Steps> stepLst = wiki.getSteps();
-        for (Steps step:stepLst) {
-            Progress prog = calculateProgress(step, tanim);
-            progressLst.add(prog);
-        }
-        tanim.setProgress(progressLst);
+//        Set<Progress> progressLst = new HashSet<>();
+//        Set<Steps> stepLst = wiki.getSteps();
+//        for (Steps step:stepLst) {
+//            Progress prog = calculateProgress(step, tanim);
+//            progressLst.add(prog);
+//        }
+//        tanim.setProgress(progressLst);
 
-        return tanimRepository.save(tanim);
+
+        return tanim;
     }
 
     private Progress calculateProgress(Steps step, Tanim tanim) {
