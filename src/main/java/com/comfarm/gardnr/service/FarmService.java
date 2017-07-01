@@ -35,10 +35,11 @@ public class FarmService {
         Item item = itemRepository.findById(wiki.getItemId());
 
         Tanim tanim = new Tanim();
-        tanim.setId(0L);
+//        tanim.setId(0L);
         tanim.setUserId(start.getUsername());
         tanim.setItemId(item.getId());
         tanim.setStartDate(new Date());
+        tanim = tanimRepository.save(tanim);
 
         Set<Progress> progressLst = new HashSet<>();
         Set<Steps> stepLst = wiki.getSteps();
@@ -60,6 +61,7 @@ public class FarmService {
         Progress progress = new Progress();
         progress.setProgressDate(date);
         progress.setTitle(step.getTitle());
+        progress.setTanim(tanim);
         return progress;
     }
 
