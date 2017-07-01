@@ -18,8 +18,8 @@ public class SwaggerDocumentationConfig {
 
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("Farm")
-            .description("user farms")
+            .title("Item")
+            .description("Items")
             .termsOfServiceUrl("")
             .version("1.0.0")
             .contact(new Contact("","", ""))
@@ -30,7 +30,7 @@ public class SwaggerDocumentationConfig {
     public Docket customImplementation(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                    .apis(RequestHandlerSelectors.basePackage("com.comfarm.gardnr"))
+                    .apis(RequestHandlerSelectors.basePackage("com.comfarm.item"))
                     .build()
                 .directModelSubstitute(org.joda.time.LocalDate.class, java.sql.Date.class)
                 .directModelSubstitute(org.joda.time.DateTime.class, java.util.Date.class)
