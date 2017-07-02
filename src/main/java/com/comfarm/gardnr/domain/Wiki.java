@@ -39,6 +39,14 @@ public class Wiki extends BaseDomain {
     @Setter
     private Set<Checklist> checklists=new HashSet<>();
 
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "wiki", cascade = CascadeType.ALL)
+    @Fetch(value = FetchMode.SELECT)
+    @Getter
+    @Setter
+    private Set<Milestone> milestones=new HashSet<>();
+
+
     @Getter
     @Setter
     @NotNull

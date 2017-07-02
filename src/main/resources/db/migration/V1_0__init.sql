@@ -54,7 +54,7 @@ CREATE TABLE `milestone` (
   `title` varchar(255) DEFAULT NULL,
   `content` text DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
-  `dayNum` smallint(5) DEFAULT NULL,
+  `day_num` smallint(5) DEFAULT NULL,
   `wiki_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKgneiewrx04ip5gals5awhxy2kd` (`wiki_id`),

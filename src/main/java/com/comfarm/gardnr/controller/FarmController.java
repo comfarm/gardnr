@@ -47,11 +47,11 @@ public class FarmController implements FarmApi {
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
 
-    @Override
-    public ResponseEntity<Set<ProgressDto>> getAllProgress(long tanimId) {
-        Set<ProgressDto> progressSet = farmService.getTanimProgress(tanimId);
-        return new ResponseEntity<>(progressSet, HttpStatus.CREATED);
-    }
+//    @Override
+//    public ResponseEntity<Set<ProgressDto>> getAllProgress(long tanimId) {
+//        Set<ProgressDto> progressSet = farmService.getTanimProgress(tanimId);
+//        return new ResponseEntity<>(progressSet, HttpStatus.CREATED);
+//    }
 
 //    @Override
 //    public ResponseEntity<ProgressDto> saveProgress(@RequestBody SaveProgressDto request, BindingResult bindingResult) {
@@ -64,16 +64,16 @@ public class FarmController implements FarmApi {
 //        return new ResponseEntity<>(dto,HttpStatus.CREATED);
 //    }
 
-    @Override
-    public ResponseEntity<ProgressDto> saveProgressWithImage(@ApiParam(value = "Save progress", required = true) @ModelAttribute SaveProgressDto request, final @RequestPart(value = "file", required = false) MultipartFile file, BindingResult bindingResult) {
-        ModelMapper mapper = new ModelMapper();
-        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        mapper.addConverter(new ProgressDomainToDto());
-        Progress newProgress = mapper.map(request, Progress.class);
-//        storageService.store(file);
-        Progress savedProgress = farmService.saveProgress(newProgress);
-        ProgressDto dto = mapper.map(savedProgress, ProgressDto.class);
-        return new ResponseEntity<>(dto, HttpStatus.CREATED);
-    }
+//    @Override
+//    public ResponseEntity<ProgressDto> saveProgressWithImage(@ApiParam(value = "Save progress", required = true) @ModelAttribute SaveProgressDto request, final @RequestPart(value = "file", required = false) MultipartFile file, BindingResult bindingResult) {
+//        ModelMapper mapper = new ModelMapper();
+//        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+//        mapper.addConverter(new ProgressDomainToDto());
+//        Progress newProgress = mapper.map(request, Progress.class);
+////        storageService.store(file);
+//        Progress savedProgress = farmService.saveProgress(newProgress);
+//        ProgressDto dto = mapper.map(savedProgress, ProgressDto.class);
+//        return new ResponseEntity<>(dto, HttpStatus.CREATED);
+//    }
 
 }

@@ -8,9 +8,9 @@ import java.util.List;
 
 @Data
 public class PlantProgressItemDto {
-    private List<ProgressDto> progressDtoList;
+//    private List<ProgressDto> progressDtoList;
     private MilestoneDto milestoneDto;
-
+    private ProgressDto progressDto;
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date date;
 }

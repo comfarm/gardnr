@@ -1,8 +1,11 @@
 package com.comfarm.gardnr.controller;
 
+import com.comfarm.gardnr.domain.Milestone;
 import com.comfarm.gardnr.domain.Tanim;
+import com.comfarm.gardnr.dto.MilestoneDto;
 import com.comfarm.gardnr.dto.PlantProgressDto;
 import com.comfarm.gardnr.dto.PlantProgressItemDto;
+import com.comfarm.gardnr.dto.ProgressDto;
 import com.comfarm.gardnr.service.FarmService;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,11 +41,25 @@ public class TanimController implements TanimApi {
         List<PlantProgressItemDto> plantProgressList=new ArrayList<>();
         Calendar c = Calendar.getInstance();
         c.setTime(tanim.getStartDate());
-        for(int x=0;x<=45;x++) {
+        List<Milestone> milestoneList=farmService.getMilestoneByWikiId(1L);
+        for(int x=0;x<=72;x++) {
             c.add(Calendar.DATE, 1);
             PlantProgressItemDto day1Prog = new PlantProgressItemDto();
             day1Prog.setDate(c.getTime());
-
+            for(Milestone m:milestoneList){
+                if(m.getDayNum()==x){
+                    MilestoneDto milestone=new MilestoneDto();
+                    milestone.setContent(m.getContent());
+                    milestone.setTitle(m.getTitle());
+                    milestone.setImage(m.getImage());
+                    milestone.setDayNum(m.getDayNum());
+                    milestone.setDate(c.getTime());
+                    day1Prog.setMilestoneDto(milestone);
+                }
+            }
+            ProgressDto progress=new ProgressDto();
+            progress.setContent("asdasd");
+            day1Prog.setProgressDto(progress);
             plantProgressList.add(day1Prog);
         }
         return plantProgressList;

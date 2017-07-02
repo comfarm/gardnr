@@ -4,20 +4,14 @@ import com.comfarm.gardnr.domain.*;
 import com.comfarm.gardnr.dto.ProgressDto;
 import com.comfarm.gardnr.dto.StartPlantDto;
 import com.comfarm.gardnr.mapper.ProgressDomainToDto;
-import com.comfarm.gardnr.repository.ItemRepository;
-import com.comfarm.gardnr.repository.ProgressRepository;
-import com.comfarm.gardnr.repository.TanimRepository;
-import com.comfarm.gardnr.repository.WikiRepository;
+import com.comfarm.gardnr.repository.*;
 import org.joda.time.LocalDate;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class FarmService {
@@ -33,6 +27,9 @@ public class FarmService {
     @Autowired
     private ProgressRepository progressRepository;
 
+
+    @Autowired
+    private MilestoneRepository milestoneRepository;
     public Tanim start(StartPlantDto start) {
 //        get itemid from wikiId
         Wiki wiki = wikiRepository.findById(start.getWikiId());
@@ -94,5 +91,9 @@ public class FarmService {
 
     public Tanim getTanim(Long tanimId) {
         return tanimRepository.getOne(tanimId);
+    }
+
+    public List<Milestone> getMilestoneByWikiId(long wikiID) {
+        return milestoneRepository.findByWikiId(wikiID);
     }
 }

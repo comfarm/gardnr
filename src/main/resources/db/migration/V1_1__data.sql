@@ -41,6 +41,8 @@ INSERT INTO `item`(`id`,`item_category_id`,`image`,`name`,`description`) VALUES
 (24,5,'https://s3-ap-southeast-1.amazonaws.com/gardnr/items/pears.jpg','Pear','One of the best-known pear varieties is the Bartlett pear, which is often seen on the grocery store shelves. When planting pear trees, be sure to research the variety first. Not all pear trees will be able to cross-pollinate each other. This varies depending on the specific variety.'),
 (25,5,'https://s3-ap-southeast-1.amazonaws.com/gardnr/items/peaches.jpg','Peach','Peaches are another longtime favorite because of their sweet, juicy flesh. The trees need a winter chill to set fruit and properly grow new leaves and branches. This varies depending on the variety of peach being grown.');
 
+insert into `tanim`(id,item_id,user_id,start_date) values
+(1,1,1,now());
 
 
 INSERT INTO `wiki`(`id`,`item_id`,`title`) VALUES
@@ -59,3 +61,9 @@ INSERT INTO `steps`(`id`,`wiki_id`,`step_num`,`count_days`,`title`,`content`) VA
 (10,1,10,73,'10. Clean Up at Season’s End','Remove spent tomato plants from the pots at the end of the growing season. If you plan to use the same pots to grow anything in the tomato family (think tomatoes peppers, eggplants, potatoes) during the following season, you’ll want to start with fresh soil. Discard any remaining soil, wash and scrub soil from pots, then sterilize them by wiping or spraying with a solution of one part bleach to 10 parts water.');
 
 
+insert into milestone(id,wiki_id,day_num,image,title) values
+(1,1,1,'https://s3-ap-southeast-1.amazonaws.com/gardnr/milestone/day1.jpg','Congratulation for having your very own tomato plant'),
+(2,1,15,'https://s3-ap-southeast-1.amazonaws.com/gardnr/milestone/day15.jpg','At this day you should be seeing little bit of sprouts, if you have multiple seedling you can pick the strongest 4 to be put in a bigger container'),
+(3,1,30,'https://s3-ap-southeast-1.amazonaws.com/gardnr/milestone/day30.JPG','The stem is thick and have plenty of healthy leaves'),
+(4,1,52,'https://s3-ap-southeast-1.amazonaws.com/gardnr/milestone/day52.jpg','Hey your plant is now starting to flower congratualtions'),
+(5,1,72,'https://s3-ap-southeast-1.amazonaws.com/gardnr/milestone/day72.jpg','Congratulations Fruits should appear by now and its ready to harvest');
