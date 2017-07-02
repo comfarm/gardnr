@@ -1,7 +1,6 @@
 package com.comfarm.gardnr.controller;
 
 import com.comfarm.gardnr.domain.Milestone;
-import com.comfarm.gardnr.domain.Progress;
 import com.comfarm.gardnr.domain.Tanim;
 import com.comfarm.gardnr.dto.MilestoneDto;
 import com.comfarm.gardnr.dto.PlantProgressDto;
@@ -10,15 +9,14 @@ import com.comfarm.gardnr.dto.ProgressDto;
 import com.comfarm.gardnr.service.FarmService;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.websocket.server.PathParam;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Set;
 
 @Controller
 public class TanimController implements TanimApi {
@@ -46,7 +44,7 @@ public class TanimController implements TanimApi {
         Calendar cal1 = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
 
-        for(int x=0;x<=72;x++) {
+        for(int x=1;x<=72;x++) {
             c.add(Calendar.DATE, 1);
             PlantProgressItemDto day1Prog = new PlantProgressItemDto();
             day1Prog.setDate(c.getTime());

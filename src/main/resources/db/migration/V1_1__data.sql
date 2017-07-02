@@ -70,4 +70,7 @@ insert into milestone(id,wiki_id,day_num,image,title) values
 
 
 insert into progress(id,tanim_id,progress_date,image,content) values
-(1,1,'2017-08-05','https://s3-ap-southeast-1.amazonaws.com/gardnr/progress/day35.jpg','hang in there');
+(1,1,'2017-08-05','https://s3-ap-southeast-1.amazonaws.com/gardnr/progress/day35.jpg','hang in there'),
+(2,1,'2017-07-17','https://s3-ap-southeast-1.amazonaws.com/gardnr/progress/day15.jpg','hang in there'),
+(3,1,'2017-08-01','https://s3-ap-southeast-1.amazonaws.com/gardnr/progress/day30.jpg','almost blooming'),
+(4,1,'2017-09-08','https://s3-ap-southeast-1.amazonaws.com/gardnr/progress/day72.jpg','fruits are ready to ripe');
