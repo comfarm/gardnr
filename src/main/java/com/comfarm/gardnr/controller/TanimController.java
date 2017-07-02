@@ -1,6 +1,7 @@
 package com.comfarm.gardnr.controller;
 
 import com.comfarm.gardnr.domain.Milestone;
+import com.comfarm.gardnr.domain.Progress;
 import com.comfarm.gardnr.domain.Tanim;
 import com.comfarm.gardnr.dto.MilestoneDto;
 import com.comfarm.gardnr.dto.PlantProgressDto;
@@ -17,10 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.websocket.server.PathParam;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class TanimController implements TanimApi {
@@ -42,6 +40,12 @@ public class TanimController implements TanimApi {
         Calendar c = Calendar.getInstance();
         c.setTime(tanim.getStartDate());
         List<Milestone> milestoneList=farmService.getMilestoneByWikiId(1L);
+        Set<ProgressDto> progressList = farmService.getTanimProgress(tanimId);
+
+
+        Calendar cal1 = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+
         for(int x=0;x<=72;x++) {
             c.add(Calendar.DATE, 1);
             PlantProgressItemDto day1Prog = new PlantProgressItemDto();
@@ -57,9 +61,15 @@ public class TanimController implements TanimApi {
                     day1Prog.setMilestoneDto(milestone);
                 }
             }
-            ProgressDto progress=new ProgressDto();
-            progress.setContent("asdasd");
-            day1Prog.setProgressDto(progress);
+            cal1.setTime(c.getTime());
+
+            for(ProgressDto progressDto:progressList){
+                cal2.setTime(progressDto.getProgressDate());
+                if(cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+                        cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR)){
+                    day1Prog.setProgressDto(progressDto);
+                }
+            }
             plantProgressList.add(day1Prog);
         }
         return plantProgressList;

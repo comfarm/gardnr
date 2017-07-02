@@ -67,3 +67,7 @@ insert into milestone(id,wiki_id,day_num,image,title) values
 (3,1,30,'https://s3-ap-southeast-1.amazonaws.com/gardnr/milestone/day30.JPG','The stem is thick and have plenty of healthy leaves'),
 (4,1,52,'https://s3-ap-southeast-1.amazonaws.com/gardnr/milestone/day52.jpg','Hey your plant is now starting to flower congratualtions'),
 (5,1,72,'https://s3-ap-southeast-1.amazonaws.com/gardnr/milestone/day72.jpg','Congratulations Fruits should appear by now and its ready to harvest');
+
+
+insert into progress(id,tanim_id,progress_date,image,content) values
+(1,1,'2017-08-05','https://s3-ap-southeast-1.amazonaws.com/gardnr/progress/day35.jpg','hang in there');
